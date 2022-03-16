@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1A5C3927E21A1900BB3BEE /* Authors.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A5C3827E21A1900BB3BEE /* Authors.json */; };
+		0A1A5C3A27E21A1900BB3BEE /* Authors.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A5C3827E21A1900BB3BEE /* Authors.json */; };
 		0A2235DA27E20EFC00ACA065 /* QuoteKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2235D927E20EFC00ACA065 /* QuoteKit */; };
 		0A2235DD27E20F3E00ACA065 /* QuoteKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2235DC27E20F3E00ACA065 /* QuoteKit */; };
 		0AB1291F27E20EB40026ED0B /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1291E27E20EB40026ED0B /* Tests_iOS.swift */; };
@@ -39,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A1A5C3827E21A1900BB3BEE /* Authors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Authors.json; sourceTree = "<group>"; };
 		0AB1290627E20EB30026ED0B /* Quoty_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quoty_DemoApp.swift; sourceTree = "<group>"; };
 		0AB1290727E20EB30026ED0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0AB1290827E20EB40026ED0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		0AB1290527E20EB30026ED0B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0A1A5C3827E21A1900BB3BEE /* Authors.json */,
 				0AB1290627E20EB30026ED0B /* Quoty_DemoApp.swift */,
 				0AB1290727E20EB30026ED0B /* ContentView.swift */,
 				0AB1290827E20EB40026ED0B /* Assets.xcassets */,
@@ -287,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A1A5C3927E21A1900BB3BEE /* Authors.json in Resources */,
 				0AB1293227E20EB40026ED0B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A1A5C3A27E21A1900BB3BEE /* Authors.json in Resources */,
 				0AB1293327E20EB40026ED0B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
