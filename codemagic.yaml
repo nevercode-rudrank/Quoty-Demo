@@ -1,0 +1,37 @@
+definitions:
+  environment_versions: &quoty_environment_versions
+    xcode: latest
+    cocoapods: default
+    vars:
+      XCODE_PROJECT: "Quoty-Demo.xcodeproj"
+      XCODE_iOS_SCHEME: "Quoty-Demo (iOS)"
+      XCODE_macOS_SCHEME: "Quoty-Demo (macOS)"
+
+workflows:
+  ios-testing-workflow:
+    name: iOS Testing Workflow
+    environment:
+      <<: *quoty_environment_versions
+    scripts:
+      - name: Run iOS UI and Unit tests
+        script: |
+          xcode-project run-tests \
+            --project "$XCODE_PROJECT" \
+            --scheme "$XCODE_iOS_SCHEME" \
+            --device "iPhone 13"
+        test_report: build/ios/test/*.xml
+
+  macos-testing-workflow:
+    name: macOS Testing Workflow
+    environment:
+      <<: *quoty_environment_versions
+    scripts:
+      - name: Run macOS UI and Unit tests
+        script: |
+          xcode-project run-tests \
+              --project "$XCODE_PROJECT" \
+              --scheme "$XCODE_macOS_SCHEME" \
+              --sdk macosx \
+              --test-xcargs "CODE_SIGNING_ALLOWED='no'" \
+              --output-dir build/macos/test
+        test_report: build/macos/test/*.xml

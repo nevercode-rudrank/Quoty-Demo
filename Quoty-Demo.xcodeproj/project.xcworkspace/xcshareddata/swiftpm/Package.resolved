@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "QuoteKit",
+        "repositoryURL": "https://github.com/rryam/QuoteKit.git",
+        "state": {
+          "branch": "main",
+          "revision": "819dd9d8a4fcbb41de3bacad9d06218ceb49fc8e",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
