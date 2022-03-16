@@ -39,15 +39,20 @@ struct AuthorRow: View {
 
     var body: some View {
         HStack {
-            AsyncImage(url: QuoteKit.authorImage(with: author.slug)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(12)
-            } placeholder: {
-                ProgressView()
+            if #available(macOS 12.0, *) {
+                AsyncImage(url: QuoteKit.authorImage(with: author.slug)) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(12)
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 70, height: 70)
+            } else {
+                EmptyView()
+                // Fallback on earlier versions
             }
-            .frame(width: 70, height: 70)
 
             Text(author.name)
         }
@@ -61,13 +66,18 @@ struct AuthorDetailView: View {
 
     var body: some View {
         ScrollView(showsIndicators: false) {
-            AsyncImage(url: QuoteKit.authorImage(with: author.slug)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(12)
-            } placeholder: {
-                ProgressView()
+            if #available(macOS 12.0, *) {
+                AsyncImage(url: QuoteKit.authorImage(with: author.slug)) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(12)
+                } placeholder: {
+                    ProgressView()
+                }
+            } else {
+                // Fallback on earlier versions
+                EmptyView()
             }
 
             Text(author.name)
@@ -95,11 +105,13 @@ struct AuthorDetailView: View {
 
         }
         .padding(.horizontal)
-        .task {
-            do {
-                quotes = try await QuoteKit.quotes(authors: [author.slug])
-            } catch {
+        .onAppear {
+            Task {
+                do {
+                    quotes = try await QuoteKit.quotes(authors: [author.slug])
+                } catch {
 
+                }
             }
         }
     }
