@@ -6,22 +6,34 @@ definitions:
       XCODE_PROJECT: "Quoty-Demo.xcodeproj"
       XCODE_iOS_SCHEME: "Quoty-Demo (iOS)"
       XCODE_macOS_SCHEME: "Quoty-Demo (macOS)"
+  scripts:
+     - &run_ios_tests
+       name: Run iOS UI and Unit tests
+       script: |
+          xcode-project run-tests \
+            --project "$XCODE_PROJECT" \
+            --scheme "$XCODE_iOS_SCHEME" \
+            --device "iPhone 13"
+       test_report: build/ios/test/*.xml
+
 
 workflows:
+  ios-testing-m1-workflow:
+    name: iOS Testing Workflow
+    instance_type: mac_pro
+    environment:
+      <<: *quoty_environment_versions
+    scripts:
+      - *run_ios_tests
+      
   ios-testing-workflow:
     name: iOS Testing Workflow
     instance_type: mac_mini_m1
     environment:
       <<: *quoty_environment_versions
     scripts:
-      - name: Run iOS UI and Unit tests
-        script: |
-          xcode-project run-tests \
-            --project "$XCODE_PROJECT" \
-            --scheme "$XCODE_iOS_SCHEME" \
-            --device "iPhone 13"
-        test_report: build/ios/test/*.xml
-
+      - *run_ios_tests
+      
   macos-testing-workflow:
     name: macOS Testing Workflow
     instance_type: mac_mini_m1
