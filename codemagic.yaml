@@ -18,7 +18,7 @@ definitions:
 
 
 workflows:
-  ios-testing-m1-workflow:
+  ios-testing-workflow:
     name: iOS Testing Workflow
     instance_type: mac_pro
     environment:
@@ -26,8 +26,8 @@ workflows:
     scripts:
       - *run_ios_tests
       
-  ios-testing-workflow:
-    name: iOS Testing Workflow
+  ios-testing-m1-workflow:
+    name: iOS Testing M1 Workflow
     instance_type: mac_mini_m1
     environment:
       <<: *quoty_environment_versions
