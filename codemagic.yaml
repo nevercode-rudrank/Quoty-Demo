@@ -20,7 +20,6 @@ definitions:
 workflows:
   ios-testing-workflow:
     name: iOS Testing Workflow
-    instance_type: mac_pro
     environment:
       <<: *quoty_environment_versions
     scripts:
