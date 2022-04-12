@@ -31,6 +31,8 @@ workflows:
     environment:
       <<: *quoty_environment_versions
     scripts:
+      - uname -m
+      - arch
       - name: Run iOS UI and Unit tests
         script: |
           arch -arm64 xcode-project run-tests \
